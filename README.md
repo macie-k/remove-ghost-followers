@@ -16,7 +16,7 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 
 ## Getting started
 - Script uses slightly modified [instabot](https://github.com/ohld/igbot) as the interface
-  - The only change is better support for the `remove_follower` function
+  - The only change is a better support for the `remove_follower` function
 - Either install via `pip install instabot` and replace file from `2replace` directory
 - Or download the ready to use `.exe` from [here](http://bit.ly/remove-ghosts-releases)
 
