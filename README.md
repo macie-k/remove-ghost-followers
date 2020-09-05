@@ -8,6 +8,12 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 
 <br>
 
+## Preview
+![preview](https://user-images.githubusercontent.com/25122875/92313859-c7a5f680-efd0-11ea-8607-54cbc88cc219.png)
+
+
+<br>
+
 ## Getting started
 - Script uses slightly modified [instabot](https://github.com/ohld/igbot) as the interface
   - The only change is better support for the `remove_follower` function
