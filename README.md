@@ -14,9 +14,9 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 
 <br>
 
-## Getting started
+## How to
 - Script uses slightly modified [instabot](https://github.com/ohld/igbot) as the interface
-  - The only change is a better support for the `remove_follower` function
+  - The only change is a different access to the `remove_follower` function
 - Either install via `pip install instabot` and replace file from `2replace` directory
 - Or download the ready to use `.exe` from [here](http://bit.ly/remove-ghosts-releases)
 
@@ -25,3 +25,9 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 ## Whitelist
 - When adding users to `whitelist.txt` **use IDs instead of usernames**
 - You can find user's ID [here](https://codeofaninja.com/tools/find-instagram-user-id/)
+
+<br>
+
+--- 
+
+If this program will get any attention I will work on minimizing the API 
