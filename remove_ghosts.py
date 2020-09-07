@@ -2,11 +2,10 @@ from argparse import ArgumentParser
 from getpass import getpass
 from instabot import Bot
 from time import sleep
-from os import system
-from os import path
 from tqdm import tqdm
-from sys import exit
 
+import sys
+import os
 import platform
 
 # parsing the arguments for one-line login
@@ -16,17 +15,11 @@ parser.add_argument('-p', '--password', metavar='password', nargs=1, help='Direc
 args = parser.parse_args()
 
 bot = Bot() # initialize the bot
-clear = 'clear' # assume it's unix based else change to 'cls'
-
+clear = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
 def main(username, password):
     bot.login(username=username, password=password)
-    system(clear)
-
-    # check if whitelist exists else create and write first line
-    if not path.exists('whitelist.txt'):
-        with open('whitelist.txt', 'w+') as f:
-            f.write('!! USERS MUST BE PROVIDED AS IDs !!')
+    clear()
 
     # get all user's followers
     print('[OK] Getting followers . . .')
@@ -60,7 +53,7 @@ def main(username, password):
             if(block == 'yes' or block =='Yes' or block == 'YES'):
                 break
             if(block == 'n' or block =='N'):
-                exit()
+                sys.exit()
 
         whitelist = ['placeholder']
         with open('whitelist.txt', 'r') as f:
@@ -75,22 +68,36 @@ def main(username, password):
                 print(f'[!] Skipping {user} - whitelisted')
 
     input('\n[OK] Finished')
-    exit()
-    
+    sys.exit()
+
 
 #####################
 
-OS = platform.system()
-if OS == 'Windows':     # correct variable if launched on windows
-    clear = 'cls'
-
-system(clear)
+clear()
 # read the credentials from arguments, if empty ask for them
 username = args.username[0] if args.username else input('[>] Username: ')
 password = args.password[0] if args.password else getpass('[>] Password: ') # hidden input for password
+
+print()
+# check if whitelist exists else create and write first line
+if not os.path.exists('whitelist.txt'):
+    print('[!] Whitelist not found, creating . . .')
+    with open('whitelist.txt', 'w+') as f:
+        f.write('!! USERS MUST BE PROVIDED AS IDs !!')
+# check if provided users are IDs else inform and exit
+else:
+    with open('whitelist.txt', 'r') as f:
+        lines = f.read().splitlines()
+        if len(lines) > 1:
+            del lines[0]
+            for line in lines:
+                if not line.isnumeric():
+                    input('[WARNING] Whitelist error - Provided user(s) are not ID(s) -- Change @usernames to numeric IDs')
+                    sys.exit()
+            print('[OK] Whitelist correct\n')
+            sleep(.5)
 
 try:
     main(username, password)
 except Exception as e:  # catch any errors and pretty-print them
     print(f'[ERROR] {e}')
-
