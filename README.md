@@ -30,4 +30,4 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 
 --- 
 
-If this program will get any attention I will work on minimizing the API 
+If this program gets any attention I will work on minimizing the API 
