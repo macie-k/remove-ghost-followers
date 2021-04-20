@@ -15,6 +15,7 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 <br>
 
 ## How to
+- If you have more than 200 posts you will get **rate limited**
 - Script uses slightly modified [instabot](https://github.com/ohld/igbot) as the interface
   - The only change is a different access to the `remove_follower` function
 - Either install via `pip install instabot` and replace file from `2replace` directory
