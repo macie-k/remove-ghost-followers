@@ -97,7 +97,7 @@ def remove_user(user):
             break
         else:
             if error == 0:
-                error('Could not remove user, possible rate limit, retrying...')
+                error('', 'Could not remove user, possible rate limit, retrying...')
             error += 1
             sleep(10)
             continue
@@ -151,7 +151,7 @@ def parse_whitelist():
                         except:
                             return False
                     whitelist.append(line)
-                return True
+            return True
 
 def check_files():
     try:
@@ -162,13 +162,13 @@ def check_files():
 
 print()
 if not check_files():
-    res = subprocess.run('pip show instabot', stdout=subprocess.PIPE).stdout.decode('utf-8').splitlines()
+    res = subprocess.run('pip show instabot', stdout=subprocess.PIPE, shell=True).stdout.decode('utf-8').splitlines()
     for line in res:
         if line.split(' ')[0] == 'Location:':
             path = line.split(' ')[1]
-            error(f'Make sure you replaced "bot_block.py" & "bot.py" files in {path}', True)
+            error('', f'Make sure you replaced "bot_block.py" & "bot.py" files in {path}', True)
             sys.exit()
-    error('Something is wrong with "instabot" library', True)
+    error('', 'Something is wrong with "instabot" library', True)
     sys.exit()
 
 # read the credentials from arguments, if empty ask for them
@@ -184,7 +184,7 @@ try:
     if parse_whitelist():
         success('Whitelist correct')
     else:
-        error('Error parsing whitelist, make sure IDs and usernames are correct', True)
+        error('', 'Could not parse whitelist, make sure IDs and usernames are correct', True)
         sys.exit()
 
     sleep(1)
@@ -197,6 +197,6 @@ try:
 
 except Exception as e:
     if str(e) == "'ds_user'":
-        error('Delete "config" folder and try again')
+        error('Cookie error', 'Delete "config" folder and try again')
     else:
         error('Error occured', e)
