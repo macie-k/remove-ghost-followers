@@ -136,7 +136,8 @@ def parse_whitelist():
 
         with open('whitelist.txt', 'w+') as f:
             f.write('!! PROVIDE USERNAMES OR IDs IN SEPARATE LINES !!')
-
+            
+        return True
     # check if provided users are IDs else inform and exit
     else:
         with open('whitelist.txt', 'r') as f:
