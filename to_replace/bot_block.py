@@ -1,16 +1,12 @@
 import random
-
 from tqdm import tqdm
-from time import sleep
 
+def check_if_replaced(self):
+    pass
 
 def remove_follower(self, user_id):
     user_id = self.convert_to_user_id(user_id)
-    if self.api.remove_follower(user_id):
-        print(f'[OK] Removed {user_id}' + " "*10)
-        sleep(0.3)
-    else:
-        print('ERROR')
+    return self.api.remove_follower(user_id)
  
 def block(self, user_id):
     user_id = self.convert_to_user_id(user_id)

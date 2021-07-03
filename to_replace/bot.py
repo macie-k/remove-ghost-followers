@@ -15,7 +15,7 @@ from ..api import API
 from .state.bot_state import BotState
 from .state.bot_cache import BotCache
 from .bot_archive import archive, archive_medias, unarchive_medias
-from .bot_block import block, block_bots, block_users, unblock, unblock_users, remove_follower
+from .bot_block import block, block_bots, block_users, unblock, unblock_users, remove_follower, check_if_replaced
 from .bot_checkpoint import load_checkpoint, save_checkpoint
 from .bot_comment import (
     comment,
@@ -135,6 +135,13 @@ class Bot(object):
     def __init__(
         self,
         base_path=current_path + "/config/",
+        whitelist_file="whitelist.txt",
+        blacklist_file="blacklist.txt",
+        comments_file="comments.txt",
+        followed_file="followed.txt",
+        unfollowed_file="unfollowed.txt",
+        skipped_file="skipped.txt",
+        friends_file="friends.txt",
         proxy=None,
         max_likes_per_day=random.randint(50, 100),
         max_unlikes_per_day=random.randint(50, 100),
@@ -246,6 +253,24 @@ class Bot(object):
 
         # current following and followers
         self.cache = BotCache()
+
+        # Adjust file paths
+        followed_file = os.path.join(base_path, followed_file)
+        unfollowed_file = os.path.join(base_path, unfollowed_file)
+        skipped_file = os.path.join(base_path, skipped_file)
+        friends_file = os.path.join(base_path, friends_file)
+        comments_file = os.path.join(base_path, comments_file)
+        blacklist_file = os.path.join(base_path, blacklist_file)
+        whitelist_file = os.path.join(base_path, whitelist_file)
+
+        # Database files
+        self.followed_file = utils.file(followed_file)
+        self.unfollowed_file = utils.file(unfollowed_file)
+        self.skipped_file = utils.file(skipped_file)
+        self.friends_file = utils.file(friends_file)
+        self.comments_file = utils.file(comments_file)
+        self.blacklist_file = utils.file(blacklist_file)
+        self.whitelist_file = utils.file(whitelist_file)
 
         self.proxy = proxy
         self.verbosity = verbosity
@@ -927,6 +952,9 @@ class Bot(object):
         
     def remove_follower(self, user_id):
         return remove_follower(self, user_id)
+
+    def check_if_replaced(self):
+        check_if_replaced(self)
 
     # filter
     def filter_medias(
