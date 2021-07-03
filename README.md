@@ -1,5 +1,5 @@
 # Remove all ghost followers from instagram
-Finds and removes everyone who hasn't interacted with any of your posts  
+Finds and removes everyone who hasn't interacted with the last 100 of your posts
 
 <br>
 
@@ -9,26 +9,30 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 <br>
 
 ## Preview
-![preview](https://user-images.githubusercontent.com/25122875/92388410-8704c500-f117-11ea-9bef-72ea77d45ff8.png)
+![preview](https://user-images.githubusercontent.com/25122875/124366716-fcff8d00-dc51-11eb-8183-e4a7c356776e.png)
 
 
 <br>
 
 ## How to
-- If you have more than 200 posts you will get **rate limited**
-- Script uses slightly modified [instabot](https://github.com/ohld/igbot) as the interface
-  - The only change is a different access to the `remove_follower` function
-- Either install via `pip install instabot` and replace file from `2replace` directory
-- Or download the ready to use `.exe` from [here](http://bit.ly/remove-ghosts-releases)
+1. If you're on windows download the the ready to use `.exe` from [here](http://bit.ly/remove-ghosts-releases) or
+2. Install [instabot](https://github.com/ohld/igbot) using: `pip install instabot`
+3. Locate the package using `pip show instabot` and navigate to the given path
+4. Copy files from `to_replace` folder to the opened instabot location and replace the originals
+5. Launch the script: `python remove_ghosts.py`
 
 <br>
 
 ## Whitelist
-- When adding users to `whitelist.txt` **use IDs instead of usernames**
-- You can find user's ID [here](https://codeofaninja.com/tools/find-instagram-user-id/)
+- Every username or user ID in the `whitelist.txt` file will be ignored
 
 <br>
 
---- 
+## Removing from list
+- If you happen to have a list of usernames you want to remove you can use the `--list` or `-l` argument and provide the filename
+- Like `python remove_ghosts.py --list yourfilename.txt`
 
-If this program gets any attention I will work on minimizing the API 
+<br>
+
+## Sidenotes
+- If you receive a `403` error, you have to wait ~1h before continuing
