@@ -18,7 +18,12 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)  -->
 ## How to
 1. If you're on windows download the the ready to use `.exe` from [here](http://bit.ly/remove-ghosts-releases) or
 2. Unzip import.zip
-5. Launch the script: `python RmG_Followers.py`
+5. Launch the script: `python RmG_f.py`
+
+<br>
+
+## Usage 
+- `python RmG_f.py -u 'username' -p 'password'`
 
 <br>
 
