@@ -71,6 +71,7 @@ def remove_ghots():
         for user in not_likers:
             if user not in whitelist:
                 remove_user(user)
+                sleep(4)
             else:
                 warning(f'Skipping {user} - whitelisted')
 
