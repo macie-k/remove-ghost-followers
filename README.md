@@ -1,10 +1,11 @@
+## Ghost Followers Remover By Macie-k Sir!
 # Remove all ghost followers from instagram
 Finds and removes everyone who hasn't interacted with the last 100 of your posts
 
 <br>
 
-## Download
-Download the latest release [here](http://bit.ly/remove-ghosts-releases)  
+<!-- ## Download
+Download the latest release [here](http://bit.ly/remove-ghosts-releases)  -->
 
 <br>
 
@@ -16,10 +17,8 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)
 
 ## How to
 1. If you're on windows download the the ready to use `.exe` from [here](http://bit.ly/remove-ghosts-releases) or
-2. Install [instabot](https://github.com/ohld/igbot) using: `pip install instabot`
-3. Locate the package using `pip show instabot` and navigate to the given path
-4. Copy files from `to_replace` folder to the opened instabot location and replace the originals
-5. Launch the script: `python remove_ghosts.py`
+2. Unzip import.zip
+5. Launch the script: `python RmG_Followers.py`
 
 <br>
 
