@@ -22,7 +22,6 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)  -->
 4. Unzip import.zip
 5. pip install -r requirements.txt
 6. Launch the script: `python RmG_f.py`
-
 <br>
 
 ## Usage 
