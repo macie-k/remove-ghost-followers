@@ -1,0 +1,7 @@
+instabot
+tqdm
+huepy
+requests
+argparse
+getpass
+colorama
