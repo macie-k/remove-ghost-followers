@@ -17,8 +17,11 @@ Download the latest release [here](http://bit.ly/remove-ghosts-releases)  -->
 
 ## How to
 1. If you're on windows download the the ready to use `.exe` from [here](http://bit.ly/remove-ghosts-releases) or
-2. Unzip import.zip
-5. Launch the script: `python RmG_f.py`
+2. Clone this Repo
+3. Navigate inside Cloned Dir
+4. Unzip import.zip
+5. pip install -r requirements.txt
+6. Launch the script: `python RmG_f.py`
 
 <br>
 
