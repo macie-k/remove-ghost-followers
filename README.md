@@ -1,3 +1,14 @@
+# May not work
+Instagram is constantly making it harder to create any kind of bots, the [instabot](https://github.com/ohld/igbot) API used in this script is not being maintained anymore.  
+And I keep getting issues about the `4xx` errors, meaning there is no guarantee this script will work.
+
+<br>
+
+---
+---
+
+<br>
+
 # Remove all ghost followers from instagram
 Finds and removes everyone who hasn't interacted with the last 100 of your posts
 
